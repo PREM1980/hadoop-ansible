@@ -10,12 +10,9 @@
     - name: installing repo for Java 8 in Ubuntu
       apt_repository: repo='ppa:openjdk-r/ppa'
 
-  roles:
-#    - webserver
-#    - database
+  roles:    
      - hadoop
-     - newuser
-     # - role: geerlingguy.java
-     #   when: "ansible_os_family == 'Debian'"
-     #   java_packages:
-     #     - openjdk-8-jdk
+     - role: geerlingguy.java
+       when: "ansible_os_family == 'Debian'"
+       java_packages:
+         - openjdk-8-jdk

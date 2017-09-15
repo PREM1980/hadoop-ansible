@@ -3,4 +3,11 @@
 # default (OpenJDK 1.7).
 # java_packages: []
 
-java_home: ""
+user: 'hduser'
+group: 'hadoop'
+
+
+sshd_use_pam: 'no'
+sshd_password_authentication: 'no'
+sshd_challenge_response_authentication: 'no'
+sshd_permitroot_login: 'no'
