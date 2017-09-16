@@ -18,41 +18,17 @@ This ansible script will replicate the same process and setup the multi node clu
 2. vagrant up
 
 
-## Dependencies
+## Setup
+1. set java_home in hadoop directory	/usr/local/hadoop/etc/hadoop/hadoop-env.sh			/usr/lib/jvm/java-8-openjdk-amd64
+2. format node	/usr/local/hadoop/bin/hadoop namenode -format			
+3. start hadoop	/usr/local/hadoop/sbin/start-all.sh			
+4. check services are running using jps command	jps			
+5. check all node is running	sudo netstat -plten | grep java			
+6. create a temp directory	mkdir -p /tmp/gutenberg			
+7. copy the contents	http://www.gutenberg.org/cache/epub/20417/pg20417.txt			
+8. create the hdfs directory	hdfs dfs -mkdir -p /user/hduser			
+9. copy files /tmp to hdfs	hadoop hdfs -copyFromLocal /tmp/gutenberg /user/hduser/gutenberg			
+to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	hadoop jar hadoop*examples*.jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output			
+10. copy the output 	hadoop hdfs -getmerge /user/hduser/gutenberg-output /tmp/gutenberg-output			
 
-
-## Example Playbook (using default package, usually OpenJDK 7)
-
-    - hosts: servers
-      roles:
-        - geerlingguy.java
-
-## Example Playbook (install OpenJDK 8)
-
-For RHEL / CentOS:
-
-    - hosts: server
-      roles:
-        - role: geerlingguy.java
-          when: "ansible_os_family == 'RedHat'"
-          java_packages:
-            - java-1.8.0-openjdk
-
-For Ubuntu < 16.04:
-
-    - hosts: server
-      tasks:
-        - name: installing repo for Java 8 in Ubuntu
-  	      apt_repository: repo='ppa:openjdk-r/ppa'
-    
-    - hosts: server
-      roles:
-        - role: geerlingguy.java
-          when: "ansible_os_family == 'Debian'"
-          java_packages:
-            - openjdk-8-jdk
-
-## License
-
-MIT / BSD
 
