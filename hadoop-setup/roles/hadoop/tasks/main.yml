@@ -225,7 +225,7 @@
     mode: 0750
     recurse: yes
 
-- name: Download the book content 
+- name: Download the book content to run the map reduce job
   get_url:
     url: http://apache.osuosl.org/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz 
     dest: /tmp/gutenberg

@@ -6,25 +6,20 @@ Installs Java for RedHat/CentOS and Debian/Ubuntu linux servers.
 
 ## Requirements
 
-None.
+This is a good article to run a multi-node hadoop cluster and widely followed.
+http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/
 
-## Role Variables
+Setting up multi node cluster is time consuming and repetitive.
+This ansible script will replicate the same process and setup the multi node cluster using Vagrant.
 
-Available variables are listed below, along with default values:
+## How to run the playbook
 
-    # The defaults provided by this role are specific to each distribution.
-    java_packages:
-      - java-1.7.0-openjdk
+1. Clone this repository
+2. vagrant up
 
-Set the version/development kit of Java to install, along with any other necessary Java packages. Some other options include are included in the distribution-specific files in this role's 'defaults' folder.
-
-    java_home: ""
-
-If set, the role will set the global environment variable `JAVA_HOME` to this value.
 
 ## Dependencies
 
-None.
 
 ## Example Playbook (using default package, usually OpenJDK 7)
 
@@ -61,6 +56,3 @@ For Ubuntu < 16.04:
 
 MIT / BSD
 
-## Author Information
-
-This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
