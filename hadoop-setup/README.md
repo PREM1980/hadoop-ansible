@@ -19,17 +19,19 @@ This ansible script will replicate the same process and setup the multi node clu
 
 
 ## Setup
-1. set java_home in hadoop directory	/usr/local/hadoop/etc/hadoop/hadoop-env.sh			/usr/lib/jvm/java-8-openjdk-amd64
-2. format node	/usr/local/hadoop/bin/hadoop namenode -format			
-3. start hadoop	/usr/local/hadoop/sbin/start-all.sh			
-4. check services are running using jps command	jps			
-5. check all node is running	sudo netstat -plten | grep java			
-6. create a temp directory	mkdir -p /tmp/gutenberg			
-7. copy the contents	http://www.gutenberg.org/cache/epub/20417/pg20417.txt			
-8. create the hdfs directory	hdfs dfs -mkdir -p /user/hduser			
-9. copy files /tmp to hdfs	- hadoop(hdfs) dfs -copyFromLocal /tmp/gutenberg /user/hduser/gutenberg			
-10. List the files - hadoop(hdfs) dfs -ls /user/hduser
-11. to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	<hadoop jar hadoop(star-*)examples(star-*).jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output>			
-12. copy the output 	hadoop hdfs -getmerge /user/hduser/gutenberg-output /tmp/gutenberg-output			
+1. change to user - sudo su hduser
+2. Source the .bashrc file
+3. set java_home in hadoop directory	/usr/local/hadoop/etc/hadoop/hadoop-env.sh			/usr/lib/jvm/java-8-openjdk-amd64
+4. format node	/usr/local/hadoop/bin/hadoop namenode -format			
+5. start hadoop	/usr/local/hadoop/sbin/start-all.sh			
+6. check services are running using jps command	jps			
+7. check all node is running	sudo netstat -plten | grep java			
+8. create a temp directory	mkdir -p /tmp/gutenberg			
+9. copy the contents	http://www.gutenberg.org/cache/epub/20417/pg20417.txt			
+10. create the hdfs directory	hdfs dfs -mkdir -p /user/hduser			
+11. copy files /tmp to hdfs	- hadoop(hdfs) dfs -copyFromLocal /tmp/gutenberg /user/hduser/gutenberg			
+12. List the files - hadoop(hdfs) dfs -ls /user/hduser
+13. to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	<hadoop jar hadoop(star-*)examples(star-*).jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output>			
+14. copy the output 	hadoop hdfs -getmerge /user/hduser/gutenberg-output /tmp/gutenberg-output			
 
 
