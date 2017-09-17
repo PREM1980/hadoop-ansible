@@ -29,7 +29,7 @@ This ansible script will replicate the same process and setup the multi node clu
 8. create the hdfs directory	hdfs dfs -mkdir -p /user/hduser			
 9. copy files /tmp to hdfs	- hadoop(hdfs) dfs -copyFromLocal /tmp/gutenberg /user/hduser/gutenberg			
 10. List the files - hadoop(hdfs) dfs -ls /user/hduser
-11. to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	hadoop jar hadoop*examples*.jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output			
+11. to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	<hadoop jar hadoop*examples*.jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output>			
 12. copy the output 	hadoop hdfs -getmerge /user/hduser/gutenberg-output /tmp/gutenberg-output			
 
 
