@@ -27,8 +27,9 @@ This ansible script will replicate the same process and setup the multi node clu
 6. create a temp directory	mkdir -p /tmp/gutenberg			
 7. copy the contents	http://www.gutenberg.org/cache/epub/20417/pg20417.txt			
 8. create the hdfs directory	hdfs dfs -mkdir -p /user/hduser			
-9. copy files /tmp to hdfs	hadoop hdfs -copyFromLocal /tmp/gutenberg /user/hduser/gutenberg			
-to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	hadoop jar hadoop*examples*.jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output			
-10. copy the output 	hadoop hdfs -getmerge /user/hduser/gutenberg-output /tmp/gutenberg-output			
+9. copy files /tmp to hdfs	- hadoop(hdfs) dfs -copyFromLocal /tmp/gutenberg /user/hduser/gutenberg			
+10. List the files - hadoop(hdfs) dfs -ls /user/hduser
+11. to run the example to to this folder - /usr/local/hadoop/share/hadoop/mapreduce	hadoop jar hadoop*examples*.jar wordcount /user/hduser/gutenberg /user/hduser/gutenberg-output			
+12. copy the output 	hadoop hdfs -getmerge /user/hduser/gutenberg-output /tmp/gutenberg-output			
 
 
